@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WonderSound</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .add-form input, .add-form button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            font-size: 16px;
+        }
+        .song-list, .artist-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .song-item, .artist-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .song-item:hover, .artist-item:hover {
+            background-color: #f0f0f0;
+        }
+        .song-detail {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .song-detail h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>WonderSound</h1>
+        <p>Dodaj artystów i piosenki. Odtwórzenia aktualizują się co 2 minuty!</p>
+    </header>
+
+    <div class="container">
+        <h2>Dodaj Artystę</h2>
+        <div class="add-form">
+            <input type="text" id="artist-name" placeholder="Nazwa artysty">
+            <button onclick="addArtist()">Dodaj Artystę</button>
+        </div>
+
+        <h2>Dodaj Piosenkę</h2>
+        <div class="add-form">
+            <input type="text" id="song-title" placeholder="Tytuł piosenki">
+            <input type="text" id="song-artist" placeholder="Artysta">
+            <button onclick="addSong()">Dodaj Piosenkę</button>
+        </div>
+
+        <h2>Artyści</h2>
+        <ul class="artist-list" id="artist-list">
+            <!-- Artyści będą wyświetleni tutaj -->
+        </ul>
+
+        <h2>Global 100</h2>
+        <ul class="song-list" id="song-list">
+            <!-- Piosenki będą wyświetlone tutaj -->
+        </ul>
+    </div>
+
+    <div id="song-detail-modal" class="song-detail" style="display:none;">
+        <h3 id="song-detail-title"></h3>
+        <p>Artysta: <span id="song-detail-artist"></span></p>
+        <p>Odtworzenia: <span id="song-detail-streams"></span></p>
+        <p>Najwyższa pozycja na liście Global 100: <span id="song-detail-highest-position"></span></p>
+        <button onclick="closeSongDetail()">Zamknij</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
